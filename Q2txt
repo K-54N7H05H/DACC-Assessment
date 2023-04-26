@@ -1,0 +1,79 @@
+db.products.insertMany([
+  {
+    _id: ObjectId("6449006ab42400911357e407"),
+    pid: 1,
+    pname: 'Milk Bikis',
+    ptype: 'Food',
+    price: 730,
+    manufacturer: 'Britannia',
+    stockqty: 250,
+    tax: { cgst: 18.5, scgst: 18.5 }
+  },
+  {
+    _id: ObjectId("64490085b42400911357e408"),
+    pid: 1,
+    pname: 'Parle-G',
+    ptype: 'Food',
+    price: 620,
+    manufacturer: 'Parle',
+    stockqty: 500,
+    tax: { cgst: 18.5, scgst: 18.5 }
+  },
+  {
+    _id: ObjectId("6449009db42400911357e409"),
+    pid: 1,
+    pname: 'Head & Shoulders',
+    ptype: 'Care',
+    price: 690,
+    manufacturer: 'Unilever',
+    stockqty: 1000,
+    tax: { cgst: 18.5, scgst: 18.5 }
+  },
+  {
+    _id: ObjectId("644900b8b42400911357e40a"),
+    pid: 1,
+    pname: 'Rice',
+    ptype: 'Care',
+    price: 750,
+    manufacturer: 'New Brand',
+    stockqty: 600,
+    tax: { cgst: 18.5, scgst: 18.5 }
+  },
+  {
+    _id: ObjectId("6449017bb42400911357e40b"),
+    pid: 100,
+    pname: 'Wheat',
+    ptype: 'Perishable',
+    price: 800,
+    manufacturer: 'New Brand',
+    stockqty: 500,
+    tax: { cgst: 18.5, scgst: 18.5 }
+  },
+  {
+    _id: ObjectId("644901acb42400911357e40c"),
+    pid: 107,
+    pname: 'Turbo Engine',
+    ptype: 'Engine',
+    price: 27800,
+    manufacturer: 'Royal Enfield',
+    stockqty: 32,
+    tax: { cgst: 18.5, scgst: 18.5 }
+  },
+  {
+    _id: ObjectId("644901ccb42400911357e40d"),
+    pid: 107,
+    pname: 'i5 i81200H processor',
+    ptype: 'microprocessor',
+    price: 57800,
+    manufacturer: 'Intel',
+    stockqty: 100,
+    tax: { cgst: 18.5, scgst: 18.5 }
+  }
+])
+
+
+(a) db.products.find({price: {$gt: 500}})
+(b) db.products.updateMany({},{$set: {tax: {cgst: 18.5, scgst: 18.5}}})
+(c) db.products.aggregate([{$group: {_id: "$ptype", count: {$sum: 1}}}])
+(d) db.products.removeMany({manufacturer: ''})
+(e) db.products.updateMany({product: 'Rice'}, {$inc: {stockqty: 100}})
